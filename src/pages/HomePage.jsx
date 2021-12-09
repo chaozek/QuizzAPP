@@ -1,7 +1,7 @@
 import { Link, animateScroll as scroll } from "react-scroll";
 import { getCategories } from "../redux/categoriesSlice";
 import { getQuestions } from "../redux/questionsSlice";
-import { mobile } from "../responsive";
+import { mobile, tablet } from "../responsive";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useHistory } from "react-router";
@@ -174,6 +174,7 @@ const Container = styled.div`
   padding: 30px 20px;
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  ${tablet({ width: "80%" })}
 `;
 const Section = styled.div`
   display: flex;
@@ -202,7 +203,7 @@ const Button = styled.button`
   background-color: #3bb6d7;
   border: none;
   padding: 15px 20px;
-  width: 200px;
+  width: 100%;
   color: #e8f9f2;
   border-radius: 10px;
   cursor: pointer;

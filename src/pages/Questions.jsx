@@ -1,4 +1,4 @@
-import { mobile } from "../responsive";
+import { mobile, tablet } from "../responsive";
 import { setScore } from "../redux/questionsSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -68,12 +68,13 @@ const Questions = () => {
               {questions?.questions[questionNumber]?.question.length > 0 &&
                 parse(questions?.questions[questionNumber]?.question)}
             </H4>
-            {clearAnswers?.map((answer, i) => (
-              <Button key={i} onClick={(e) => handleClick(e)} value={answer}>
-                {answer.length > 0 && parse(answer)}
-              </Button>
-            ))}
-
+            <Buttons>
+              {clearAnswers?.map((answer, i) => (
+                <Button key={i} onClick={(e) => handleClick(e)} value={answer}>
+                  {answer.length > 0 && parse(answer)}
+                </Button>
+              ))}
+            </Buttons>
             <Score>Score: {questions.score}</Score>
           </Center>
         )}
@@ -88,10 +89,14 @@ const H4 = styled.h1`
   margin: 0;
   color: #3bb6d7;
   font-weight: black;
-  ${mobile({ fontSize: "30px" })}
   margin-bottom: 2rem;
 `;
 const Center = styled.div``;
+const Buttons = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
 const Score = styled.div`
   color: #3bb6d7;
   font-weight: bold;
@@ -106,6 +111,7 @@ const Container = styled.div`
   padding: 30px 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   min-height: 20vh;
+  ${tablet({ width: "80%" })}
 `;
 const Section = styled.div`
   display: flex;
@@ -129,8 +135,8 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: bold;
   margin: 10px 2%;
+  width: 45%;
   background-color: none;
-  width: 46%;
   transition: all 100ms ease-in;
   color: #3bb6d7;
   :hover {

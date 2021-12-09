@@ -1,7 +1,5 @@
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-
 import { GlobalStyles } from "./GlobalStyles";
-
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Final from "./pages/Final";
 import HomePage from "./pages/HomePage";
 import ParticlesBg from "particles-bg";
